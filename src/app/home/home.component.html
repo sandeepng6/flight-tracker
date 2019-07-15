@@ -1,0 +1,22 @@
+<ActionBar title="Kayak" backgroundColor="#221F20" color="white" class="action-bar">
+    <NavigationButton visibility="collapsed"></NavigationButton>
+    <GridLayout columns="auto,*,auto" ios:padding="0 10" height="100%" width="100%">
+        <ActionButton #actionButton></ActionButton>
+        <Image #search width="150" src="~/assets/download.png" ></Image>
+    </GridLayout>
+</ActionBar>
+<StackLayout class="page">
+
+    <SearchBar hint="Airline Filter..." (clear)="onClear($event)"
+        (submit)="onSubmit($event)" (textChange)="onTextChange($event)" class="search-bar"></SearchBar>
+
+        <ListView class="list-group" [items]="airlineItem"  (itemTap)="select($event)">
+            <ng-template let-item="item">
+                <GridLayout class="list-group-item" rows="*" columns="auto, *">
+                    <Image row="0" col="0" width="80" height="50" [src]="item.logoURL" class="thumb img-circle"></Image>
+                    <Label row="0" col="1" [text]="item.name"></Label>
+                </GridLayout>
+            </ng-template>
+        </ListView>
+	
+</StackLayout>

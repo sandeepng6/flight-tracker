@@ -1,0 +1,10 @@
+<ActionBar title="Kayak" backgroundColor="#221F20" color="white" class="action-bar">
+    <NavigationButton visibility="collapsed"></NavigationButton>
+    <GridLayout columns="auto,*,auto" ios:padding="0 10" height="100%" width="100%">
+        <ActionButton #actionButton></ActionButton>
+        <Image #search width="150" src="~/assets/download.png" ></Image>
+    </GridLayout>
+</ActionBar>
+<SearchBar row="0" hint="Search hint" [text]="searchPhrase" (textChange)="onTextChanged($event)" (submit)="onSubmit($event)" 
+            color="white" textFieldBackgroundColor="red" textFieldHintColor="white"></SearchBar>
+
